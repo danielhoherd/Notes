@@ -2215,6 +2215,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#export-exif-data-as-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export exif data as JSON
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7536,6 +7545,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#export-exif-data-as-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export exif data as JSON
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7913,6 +7931,27 @@ xargs -r rm -fv
   xargs -0 exiftool -if 'not defined $GPSPosition' -geotag ~/gps_tracks.gpx '-Geotime&lt;${createdate}+00:00' --
 </code></pre>
 <p>This page gives more examples: <a href="https://exiftool.org/geotag.html">https://exiftool.org/geotag.html</a></p>
+<h3 id="export-exif-data-as-json">Export exif data as JSON</h3>
+<p>You can use the <code>-J/-json</code> flag to output JSON data, which is obviously really helpful.</p>
+<pre><code>$ exiftool -J -ExifToolVersion -LensFStops 20241027-20-44-44_177lgJ.dng | jq .
+[
+  {
+    &quot;SourceFile&quot;: &quot;20241027-20-44-44_177lgJ.dng&quot;,
+    &quot;ExifToolVersion&quot;: 12.5,
+    &quot;LensFStops&quot;: 6
+  }
+]
+</code></pre>
+<p>However, by default, all numeric looking values are not quoted, even if they are not numeric values, like version numbers. In the above example, the version number is <code>12.50</code>, not <code>12.5</code>, and the LensFSops is <code>6.00</code>, not <code>6</code>. To work around this, you can use <code>-api StructFormat=JSONQ</code>, where <code>JSONQ</code> is "JSON with quoted numbers". (See <a href="https://exiftool.org/ExifTool.html#StructFormat">https://exiftool.org/ExifTool.html#StructFormat</a> for more details.) You must be using exiftool &gt;= 12.88 (2024-07-11) for this feature to be available, otherwise it will silently produce non-quoted numeric values.</p>
+<pre><code>$ exiftool -api StructFormat=JSONQ -json -ExifToolVersion -LensFStops 20241027-20-44-44_177lgJ.dng | jq .
+[
+  {
+    &quot;SourceFile&quot;: &quot;20241027-20-44-44_177lgJ.dng&quot;,
+    &quot;ExifToolVersion&quot;: &quot;13.00&quot;,
+    &quot;LensFStops&quot;: &quot;6.00&quot;
+  }
+]
+</code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="../graphicsmagick/">graphicsmagick</a></li>
