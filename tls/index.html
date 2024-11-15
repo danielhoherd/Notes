@@ -6491,6 +6491,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#generate-random-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate random data
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7248,6 +7257,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#generate-random-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate random data
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7362,6 +7380,10 @@ function decrypt_file() { openssl enc -aes-256-cbc -d -in &quot;$1&quot; -out &q
 <h3 id="perform-a-benchmark">Perform a benchmark</h3>
 <p>You can run benchmarks on one or more ciphers or digests using <code>openssl speed</code>.</p>
 <pre><code class="language-sh">openssl speed -seconds 5 -evp sha256 sha512
+</code></pre>
+<h3 id="generate-random-data">Generate random data</h3>
+<p>openssl can generate pseudo random data faster than /dev/urandom. This generates a 1 megabyte random data file at over 3x the speed of using /dev/urandom.</p>
+<pre><code class="language-sh">openssl enc -aes-256-ctr -pbkdf2 -pass pass:&quot;foo&quot; &lt; /dev/zero | dd bs=1024 count=1024 of=1_megabyte_random.dat
 </code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
