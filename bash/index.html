@@ -663,13 +663,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tricks-and-usage" class="md-nav__link">
+  <a href="#tips-and-usage-examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Tricks and Usage
+      Tips and Usage Examples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tricks and Usage">
+    <nav class="md-nav" aria-label="Tips and Usage Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1036,6 +1036,15 @@
   <a href="#get-command-line-switches" class="md-nav__link">
     <span class="md-ellipsis">
       Get command line switches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unexpected-code-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unexpected code execution
     </span>
   </a>
   
@@ -7487,13 +7496,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tricks-and-usage" class="md-nav__link">
+  <a href="#tips-and-usage-examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Tricks and Usage
+      Tips and Usage Examples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tricks and Usage">
+    <nav class="md-nav" aria-label="Tips and Usage Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7865,6 +7874,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#unexpected-code-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unexpected code execution
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7953,7 +7971,7 @@
 
 <h1 id="gnu-bash">GNU bash</h1>
 <p>Bash is one of the most common mainstream unix shells.</p>
-<h2 id="tricks-and-usage">Tricks and Usage</h2>
+<h2 id="tips-and-usage-examples">Tips and Usage Examples</h2>
 <h3 id="navigating-on-the-command-line">Navigating on the command line</h3>
 <p>The following can be seen by running: <code>stty -a</code></p>
 <ul>
@@ -8279,6 +8297,21 @@ echo &quot;\$1 is $1&quot;
 echo &quot;\$2 is $2&quot;
 </code></pre>
 <p>Call this script as <code>./foo.sh -p "this is p" -l llll -t this\ is\ t foo bar</code></p>
+<h3 id="unexpected-code-execution">Unexpected code execution</h3>
+<p>When using numeric comparison operators that use array syntax, code that determines the array index is executed:</p>
+<pre><code>$ rm -f pwnd ; [[ -v '$(echo hello &gt; pwnd)' ]] ; cat pwnd ; # does not use array syntax
+cat: pwnd: No such file or directory
+$ rm -f pwnd ; [[ -v 'x[$(echo hello &gt; pwnd)]' ]] ; cat pwnd ; # uses array syntax
+hello
+</code></pre>
+<p>This also happens with <code>-eq</code></p>
+<pre><code>$ rm -f pwnd ; [[ 0 -eq 'x$(echo hello &gt; pwnd)' ]] ; cat pwnd ; # does not use array syntax
+-bash: [[: x$(echo hello &gt; pwnd): syntax error: invalid arithmetic operator (error token is &quot;$(echo hello &gt; pwnd)&quot;)
+cat: pwnd: No such file or directory
+$ rm -f pwnd ; [[ 0 -eq 'x[$(echo hello &gt; pwnd)]' ]] ; cat pwnd ; # uses array syntax
+hello
+</code></pre>
+<p>Via <a href="https://yossarian.net/til/post/some-surprising-code-execution-sources-in-bash">https://yossarian.net/til/post/some-surprising-code-execution-sources-in-bash</a></p>
 <h2 id="files">Files</h2>
 <p>These files can change the behavior of bash.</p>
 <h3 id="bash_profile">.bash_profile</h3>
