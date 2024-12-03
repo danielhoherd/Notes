@@ -1708,6 +1708,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#query-multicast-dns-for-a-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query multicast DNS for a hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-a-reverse-lookup-against-multicast-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do a reverse lookup against multicast DNS
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7153,6 +7171,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#query-multicast-dns-for-a-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query multicast DNS for a hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-a-reverse-lookup-against-multicast-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do a reverse lookup against multicast DNS
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7191,6 +7227,12 @@
 </code></pre>
 <p>If this doesn't give you a trace you must specify an alternate DNS server</p>
 <pre><code class="language-sh">dig @8.8.8.8 +trace renovo.auto
+</code></pre>
+<h3 id="query-multicast-dns-for-a-hostname">Query multicast DNS for a hostname</h3>
+<pre><code class="language-sh">dig gibson.local @224.0.0.251 -p 5353
+</code></pre>
+<h3 id="do-a-reverse-lookup-against-multicast-dns">Do a reverse lookup against multicast DNS</h3>
+<pre><code class="language-sh">dig -x 10.31.33.7 @224.0.0.251 -p 5353
 </code></pre>
 
 
