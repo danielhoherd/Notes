@@ -3073,6 +3073,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-multicast-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show multicast addresses
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7243,6 +7252,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#show-multicast-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show multicast addresses
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7268,38 +7286,45 @@
 <h2 id="examples">Examples</h2>
 <p>The commands here can be shortened like cisco or other network device commands.</p>
 <h3 id="get-the-default-interface">Get the default interface</h3>
-<pre><code>ip route get 8.8.8.8
+<pre><code class="language-sh">ip route get 8.8.8.8
 </code></pre>
 <h3 id="show-ip-neighbors">Show IP neighbors</h3>
-<pre><code>ip neighbor show
+<pre><code class="language-sh">ip neighbor show
 </code></pre>
 <h3 id="show-all-configured-ip-addresses">Show all configured IP addresses</h3>
 <p>This is more reliable than ifconfig, which sometimes omits entries.</p>
-<pre><code>ip -f inet addr
+<pre><code class="language-sh">ip -f inet addr
 </code></pre>
 <h3 id="show-information-about-eth0">Show information about eth0</h3>
 <p>This shows information about eth0 and all the virtual interfaces brought up on the physical interface.</p>
-<pre><code>ip addr show eth0
+<pre><code class="language-sh">ip addr show eth0
 </code></pre>
 <h3 id="monitor-ip-changes">Monitor IP changes</h3>
-<pre><code>ip mon all
+<pre><code class="language-sh">ip mon all
 </code></pre>
 <h3 id="show-interfaces-that-would-route-to-a-given-network-address">Show interfaces that would route to a given network address</h3>
-<pre><code>ip addr show to 10.1.8.0/24
+<pre><code class="language-sh">ip addr show to 10.1.8.0/24
 </code></pre>
 <h3 id="show-negotiated-speeds-for-all-interfaces">Show negotiated speeds for all interfaces</h3>
-<pre><code>ip -o link show | awk -F: '{print $2}' | while read -r X ; do
-  sudo ethtool ${X} | egrep 'Settings|Speed' | xargs echo
-done | column -t -s:
+<pre><code class="language-sh">ip -o link show | awk -F: '{print $2}' | while read -r X ; do
+  sudo ethtool &quot;${X}&quot; 2&gt;/dev/null |
+  grep -E 'Settings|Speed' |
+  xargs echo
+done |
+awk '{print $3, $5}' |
+column -t -s:
 </code></pre>
 <h3 id="add-a-static-route">Add a static route</h3>
-<pre><code>ip route add 192.168.100.0/24 via 0.0.0.0 dev eth0
+<pre><code class="language-sh">ip route add 192.168.100.0/24 via 0.0.0.0 dev eth0
 </code></pre>
 <h3 id="set-mtu-for-a-specific-route">Set MTU for a specific route</h3>
 <ul>
 <li><a href="http://lartc.org/howto/lartc.cookbook.mtu-discovery.html">http://lartc.org/howto/lartc.cookbook.mtu-discovery.html</a></li>
 </ul>
-<pre><code>ip route add default via 10.0.0.1 mtu 296
+<pre><code class="language-sh">ip route add default via 10.0.0.1 mtu 296
+</code></pre>
+<h3 id="show-multicast-addresses">Show multicast addresses</h3>
+<pre><code class="language-sh">ip maddr show
 </code></pre>
 
 

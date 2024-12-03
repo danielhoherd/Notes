@@ -7378,7 +7378,7 @@
 </code></pre>
 <h3 id="capture-lldp-traffic">Capture LLDP traffic</h3>
 <p>This matches 2 bytes starting at the 12th byte against 88cc</p>
-<pre><code class="language-sh">tcpdump -v -s 1500 -c 1  '(ether[12:2]=0x88cc)'
+<pre><code class="language-sh">tcpdump -v -s 1500 -c 1 '(ether[12:2]=0x88cc)'
 </code></pre>
 <h3 id="capture-syn-packets">Capture SYN packets</h3>
 <pre><code class="language-sh">tcpdump -n 'tcp[13] &amp; 2!=0'
@@ -7417,7 +7417,7 @@ done
 </code></pre>
 <p>You can reassemble these files chronologically with <code>mergecap -w merged.cap foo.cap*</code></p>
 <h3 id="show-wpa-4-way-handshakes">Show WPA 4-way handshakes</h3>
-<pre><code>tcpdump -n -i en0 &quot;ether proto 0x888e&quot;
+<pre><code class="language-sh">tcpdump -n -i en0 &quot;ether proto 0x888e&quot;
 </code></pre>
 <h2 id="links">Links</h2>
 <ul>
