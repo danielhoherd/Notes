@@ -3663,6 +3663,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-a-list-of-mounted-volumes-formatted-as-namespace-pod_name-container_name-volume_name-mount_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a list of mounted volumes formatted as namespace pod_name container_name volume_name mount_point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-mounted-pvcs-as-namespace-pod_name-container_name-pvc-mount_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a list of mounted pvc's as namespace pod_name container_name pvc mount_point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#decode-a-secret" class="md-nav__link">
     <span class="md-ellipsis">
       Decode a secret
@@ -7781,6 +7799,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#show-a-list-of-mounted-volumes-formatted-as-namespace-pod_name-container_name-volume_name-mount_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a list of mounted volumes formatted as namespace pod_name container_name volume_name mount_point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-a-list-of-mounted-pvcs-as-namespace-pod_name-container_name-pvc-mount_point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show a list of mounted pvc's as namespace pod_name container_name pvc mount_point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#decode-a-secret" class="md-nav__link">
     <span class="md-ellipsis">
       Decode a secret
@@ -8275,6 +8311,37 @@ StatefulSet/demo-prometheus configmap-reloader HOSTNAME=demo-prometheus-1
 StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
 </code></pre>
 <p>That's obviously a contrived example, but the real learning here is that it is possible to iterate deep json data while referencing values form higher levels by storing that higher level as variables.</p>
+<h3 id="show-a-list-of-mounted-volumes-formatted-as-namespace-pod_name-container_name-volume_name-mount_point">Show a list of mounted volumes formatted as namespace pod_name container_name volume_name mount_point</h3>
+<pre><code class="language-sh">kubectl get pods -A -o json | jq -r '
+  .items[] |
+  {
+    namespace: .metadata.namespace,
+    pod: .metadata.name,
+    containers: .spec.containers[] |
+    {
+      container: .name,
+      volumes: .volumeMounts[] |
+      {
+        mountPath: .mountPath,
+        pvc: .name
+      }
+    }
+  } |
+  &quot;\(.namespace) \(.pod) \(.containers.container) \(.containers.volumes.pvc) \(.containers.volumes.mountPath)&quot;
+' | column -t
+</code></pre>
+<h3 id="show-a-list-of-mounted-pvcs-as-namespace-pod_name-container_name-pvc-mount_point">Show a list of mounted pvc's as namespace pod_name container_name pvc mount_point</h3>
+<pre><code class="language-sh">$ kubectl get pods -A -o json | jq -r '
+  .items[] as $pod |
+  $pod.spec.volumes[]? as $volume |
+  select($volume.persistentVolumeClaim != null) |
+  $volume.persistentVolumeClaim.claimName as $pvc |
+  $pod.spec.containers[] as $container |
+  $container.volumeMounts[]? |
+  select(.name == $volume.name) |
+  &quot;\($pod.metadata.namespace) \($pod.metadata.name) \($container.name) \($pvc) \(.mountPath)&quot;
+' | column -t
+</code></pre>
 <h3 id="decode-a-secret">Decode a secret</h3>
 <p>Use built in base64 decoding like this:</p>
 <pre><code class="language-sh">kubectl get secret -n &quot;${NAMESPACE}&quot; &quot;${SECRET_NAME}&quot; -o go-template='{{ printf &quot;%s\n&quot; (.data.password | base64decode) }}'
