@@ -8331,7 +8331,7 @@ StatefulSet/demo-prometheus prometheus HOSTNAME=demo-prometheus-1
 ' | column -t
 </code></pre>
 <h3 id="show-a-list-of-mounted-pvcs-as-namespace-pod_name-container_name-pvc-mount_point">Show a list of mounted pvc's as namespace pod_name container_name pvc mount_point</h3>
-<pre><code class="language-sh">$ kubectl get pods -A -o json | jq -r '
+<pre><code class="language-sh">kubectl get pods -A -o json | jq -r '
   .items[] as $pod |
   $pod.spec.volumes[]? as $volume |
   select($volume.persistentVolumeClaim != null) |
