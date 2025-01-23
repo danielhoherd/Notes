@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/shairport-sync/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/cryptography/">
       
       
-        <link rel="prev" href="../sgdisk/">
+        <link rel="prev" href="../cron/">
       
       
-        <link rel="next" href="../shred/">
+        <link rel="next" href="../cryptsetup/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>shairport-sync - Daniel Hoherd's tech notes</title>
+        <title>cryptography - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shairport-sync" class="md-skip">
+        <a href="#cryptography" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              shairport-sync
+              cryptography
             
           </span>
         </div>
@@ -1154,10 +1154,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../cryptography/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    cryptography
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1166,6 +1186,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glossary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5674,30 +5723,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    shairport-sync
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../shairport-sync/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5706,50 +5735,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shairport-sync-in-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      shairport-sync in docker
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -7121,26 +7106,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#glossary" class="md-nav__link">
     <span class="md-ellipsis">
-      Example
+      Glossary
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shairport-sync-in-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      shairport-sync in docker
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -7159,19 +7129,13 @@
                   
 
 
-<h1 id="shairport-sync">shairport-sync</h1>
-<p>"AirPlay audio player. Shairport Sync adds multi-room capability with Audio Synchronisation" - <a href="https://github.com/mikebrady/shairport-sync">https://github.com/mikebrady/shairport-sync</a></p>
-<h2 id="example">Example</h2>
-<h3 id="shairport-sync-in-docker">shairport-sync in docker</h3>
-<p>This is a really easy way to get shairport-sync running on Linux. The container is 12mb.</p>
-<pre><code>docker run \
-  --rm \
-  --detach \
-  --network=host \
-  --device /dev/snd \
-  -e AIRPLAY_NAME=&quot;shairport ${HOSTNAME}&quot; \
-  kevineye/shairport-sync
-</code></pre>
+<h1 id="cryptography">cryptography</h1>
+<h2 id="glossary">Glossary</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a>: hash-based message authentication code.</li>
+<li><a href="https://en.wikipedia.org/wiki/Message_authentication_code">MAC</a>: message authentication code.</li>
+<li><a href="https://en.wikipedia.org/wiki/Cryptographic_nonce">nonce</a>: an arbitrary number that can be used just once in a cryptographic communication.</li>
+</ul>
 
 
 
