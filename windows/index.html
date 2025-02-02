@@ -10,13 +10,13 @@
         <meta name="author" content="Daniel Austin Hoherd">
       
       
-        <link rel="canonical" href="https://danielhoherd.com/tech-notes/cut/">
+        <link rel="canonical" href="https://danielhoherd.com/tech-notes/windows/">
       
       
-        <link rel="prev" href="../curl/">
+        <link rel="prev" href="../winbind/">
       
       
-        <link rel="next" href="../d2/">
+        <link rel="next" href="../wireshark/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>cut - Daniel Hoherd's tech notes</title>
+        <title>Windows - Daniel Hoherd's tech notes</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cut" class="md-skip">
+        <a href="#windows" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              cut
+              Windows
             
           </span>
         </div>
@@ -1254,30 +1254,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    cut
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cut/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1286,68 +1266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#keep-only-the-selected-characters" class="md-nav__link">
-    <span class="md-ellipsis">
-      keep only the selected characters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keep-only-the-given-field-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      keep only the given field index
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      See Also
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6916,10 +6834,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../windows/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -6928,6 +6866,230 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mount-a-drive-using-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mount a drive using CLI:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-128-bit-encryption-requirement-for-cifs-shares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable 128 bit encryption requirement for CIFS shares:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-new-sid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate new SID:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-system-serial-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get system serial number:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-balloon-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable balloon tips:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-tray-auto-hide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable tray auto-hide:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-scheduled-task-to-defrag-windows-every-morning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a scheduled task to defrag windows every morning:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-scheduled-task-to-start-dropbox-at-11pm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a scheduled task to start dropbox at 11pm:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-non-windows-non-ad-systems-to-submit-their-own-hostnames-to-dns-add-dhcpservice-to-the-dnsupdateproxy-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow non-windows non-AD systems to submit their own hostnames to DNS, Add dhcpservice to the DnsUpdateProxy group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-dns-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable DNS debugging:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsopmsc-will-allow-you-to-see-the-policy-that-is-in-effect-on-the-given-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      RSOP.msc will allow you to see the policy that is in effect on the given computer.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-symlink-from-a-remote-unc-folder-to-a-local-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a symlink from a remote UNC folder to a local directory:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-telnet-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Telnet Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remotely-uninstall-graphical-interfaces-on-windows-server-2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remotely uninstall graphical interfaces on Windows Server 2012
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootable-hard-drive-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bootable hard drive install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-ntp-from-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure NTP from CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-place-upgrade-between-editions" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-place upgrade between editions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-product-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve product key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -7179,28 +7341,190 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples
+      Tips
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Examples">
+    <nav class="md-nav" aria-label="Tips">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#keep-only-the-selected-characters" class="md-nav__link">
+  <a href="#mount-a-drive-using-cli" class="md-nav__link">
     <span class="md-ellipsis">
-      keep only the selected characters
+      Mount a drive using CLI:
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#keep-only-the-given-field-index" class="md-nav__link">
+  <a href="#disable-128-bit-encryption-requirement-for-cifs-shares" class="md-nav__link">
     <span class="md-ellipsis">
-      keep only the given field index
+      Disable 128 bit encryption requirement for CIFS shares:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-new-sid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate new SID:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-system-serial-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get system serial number:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-balloon-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable balloon tips:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-tray-auto-hide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable tray auto-hide:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-scheduled-task-to-defrag-windows-every-morning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a scheduled task to defrag windows every morning:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-scheduled-task-to-start-dropbox-at-11pm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add a scheduled task to start dropbox at 11pm:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-non-windows-non-ad-systems-to-submit-their-own-hostnames-to-dns-add-dhcpservice-to-the-dnsupdateproxy-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow non-windows non-AD systems to submit their own hostnames to DNS, Add dhcpservice to the DnsUpdateProxy group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-dns-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable DNS debugging:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsopmsc-will-allow-you-to-see-the-policy-that-is-in-effect-on-the-given-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      RSOP.msc will allow you to see the policy that is in effect on the given computer.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-symlink-from-a-remote-unc-folder-to-a-local-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a symlink from a remote UNC folder to a local directory:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-telnet-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Telnet Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remotely-uninstall-graphical-interfaces-on-windows-server-2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remotely uninstall graphical interfaces on Windows Server 2012
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootable-hard-drive-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bootable hard drive install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-ntp-from-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure NTP from CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-place-upgrade-between-editions" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-place upgrade between editions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Group Policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-product-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve product key
     </span>
   </a>
   
@@ -7212,9 +7536,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
+  <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
-      See Also
+      Links
     </span>
   </a>
   
@@ -7235,45 +7559,101 @@
                   
 
 
-<h1 id="cut">cut</h1>
-<p>"cut out selected portions of each line of a file" - <code>man cut</code></p>
-<h2 id="examples">Examples</h2>
-<h3 id="keep-only-the-selected-characters">keep only the selected characters</h3>
-<p><code>cut</code> is 1-indexed</p>
-<pre><code>$ echo {0..9}
-0 1 2 3 4 5 6 7 8 9
-$ echo {0..9} | cut -c 1
-0
-$ echo -n {0..9} | cut -c 1-5
-0 1 2
-$ echo -n {0..9} | cut -c 1,19
-09
-$ echo -n {a..z} | sed 's/ //g' | cut -c 10-20
-jklmnopqrst
+<h1 id="windows">Windows</h1>
+<p>Microsoft's main Operating System.</p>
+<p>Most of these notes are from before 2015. They were auto-converted, and not cleaned up very well, so there are lots of formatting weirdnesses.</p>
+<h2 id="tips">Tips</h2>
+<h3 id="mount-a-drive-using-cli">Mount a drive using CLI:</h3>
+<pre><code class="language-powershell">net use z: \\servername\sharename password /USER:username
 </code></pre>
-<h3 id="keep-only-the-given-field-index">keep only the given field index</h3>
-<p>By default, <code>cut</code> works with tab delimited fields, which is not really useful. You can specify a different field delimiter with <code>-d</code></p>
-<pre><code>$ echo {a..z} | cut -d ' ' -f 3
-c
-$ echo {a..z} | cut -d ' ' -f 3-10
-c d e f g h i j
-$ echo 'a^b^c' | cut -d'^' -f 3
-c
+<h3 id="disable-128-bit-encryption-requirement-for-cifs-shares">Disable 128 bit encryption requirement for CIFS shares:</h3>
+<pre><code class="language-powershell">reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel /t REG_DWORD /d 1 /f
 </code></pre>
-<p>It's not really intuitive though because every single space separates one field from the next, even if the field is null</p>
-<pre><code>$ echo 'a b c d' | cut -d ' ' -f 1-3
-a b c
-$ echo 'a  b  c  d' | cut -d ' ' -f 1-3
-a  b
+<h3 id="generate-new-sid">Generate new SID:</h3>
+<pre><code class="language-powershell">c:\windows\system32\sysprep\sysprep.exe /generalize /reboot /quiet
 </code></pre>
-<p>Using <code>-w</code> allows all consecutive whitespace to be treated as one separator, which is usually the desired behavior, but then the output fields are separated by tabs.</p>
-<pre><code>$ echo 'a  b  c  d' | cut -w -f 1-3
-a       b       c
+<h3 id="get-system-serial-number">Get system serial number:</h3>
+<pre><code class="language-powershell">wmic bios get /format:list | find &quot;Serial&quot;
 </code></pre>
-<h2 id="see-also">See Also</h2>
+<h3 id="disable-balloon-tips">Disable balloon tips:</h3>
+<pre><code class="language-powershell">reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v EnableBalloonTips /t REG_DWORD /d 0 /f
+</code></pre>
+<h3 id="disable-tray-auto-hide">Disable tray auto-hide:</h3>
+<pre><code class="language-powershell">REG ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer /t REG_DWORD /v EnableAutoTray /d 0 /f
+</code></pre>
+<h3 id="add-a-scheduled-task-to-defrag-windows-every-morning">Add a scheduled task to defrag windows every morning:</h3>
+<pre><code class="language-powershell">schtasks /create /tn &quot;Defrag C and D&quot; /sc DAILY /st 03:01:00 /tr &quot;defrag c: &amp; defrag d:&quot; /ru &quot;domain\administrator&quot;
+</code></pre>
+<h3 id="add-a-scheduled-task-to-start-dropbox-at-11pm">Add a scheduled task to start dropbox at 11pm:</h3>
+<pre><code class="language-powershell">C:\Users\zerocool&gt;SchTasks /Create /SC DAILY /TN &quot;Start Dropbox&quot; /ST 23:00 /TR &quot;C:\Users\zerocool\AppData\Roaming\Dropbox\bin\Dropbox.exe /home&quot;
+</code></pre>
+<h3 id="allow-non-windows-non-ad-systems-to-submit-their-own-hostnames-to-dns-add-dhcpservice-to-the-dnsupdateproxy-group">Allow non-windows non-AD systems to submit their own hostnames to DNS, Add dhcpservice to the DnsUpdateProxy group</h3>
+<pre><code class="language-powershell">reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel /t REG_DWORD /d 1 /f
+</code></pre>
+<p>Enable auto-login: start -&gt; run -&gt; control userpasswords2</p>
+<p><code>HKEY\_LOCAL\_MACHINE/SYSTEM/CurrentControlSet/Services</code> and can be deleted via the <code>sc</code> command line.</p>
+<p>Edit a lot of policies via the Active Directory Services Interface editor - Adsiedit.msc</p>
+<h3 id="enable-dns-debugging">Enable DNS debugging:</h3>
+<pre><code class="language-powershell">reg add &quot;HKLM\SYSTEM\CurrentControlSet\Services\NTDS\Diagnostics\&quot; /v &quot;13 Name Resolution&quot; /t REG_DWORD /d 1 /f ; net stop &quot;DNS Server&quot; ; net start &quot;DNS Server&quot;
+</code></pre>
+<h3 id="rsopmsc-will-allow-you-to-see-the-policy-that-is-in-effect-on-the-given-computer">RSOP.msc will allow you to see the policy that is in effect on the given computer.</h3>
+<h3 id="create-a-symlink-from-a-remote-unc-folder-to-a-local-directory">Create a symlink from a remote UNC folder to a local directory:</h3>
+<pre><code class="language-powershell">mklink /D c:\lysithea-shared\ \\lysithea\shared
+</code></pre>
+<h3 id="enable-telnet-server">Enable Telnet Server</h3>
+<p>This isn't really advisable except for when you *really* need it, like remote PowerCLI.</p>
+<p>Configure telnet server to auto-start: <code>sc config TlntSvr start=auto</code></p>
+<p>Start telnet server:</p>
+<pre><code>sc start TlntSvr
+</code></pre>
+<p>Configure telnet server to not require NTLM auth, allowing password auth:</p>
+<pre><code>tlntadmn config sec=-NTLM
+</code></pre>
+<p>Configure stream mode (apparently makes things better for unix clients)</p>
+<pre><code>tlntadmn config mode=stream
+</code></pre>
+<h3 id="remotely-uninstall-graphical-interfaces-on-windows-server-2012">Remotely uninstall graphical interfaces on Windows Server 2012</h3>
+<pre><code class="language-powershell">Uninstall-WindowsFeature -ComputerName &quot;&lt;server&gt;&quot; -Name Server-Gui-Mgmt-Infra, Server-Gui-Shell -Restart
+</code></pre>
+<h3 id="bootable-hard-drive-install">Bootable hard drive install</h3>
+<p>Use the Windows 7 USB/DVD download tool, but if that doesn't work, this should work newer than XP:</p>
+<ol>
+<li>Attach hard disk</li>
+<li>Format as NTFS</li>
+<li>Set partition as active</li>
+<li>xcopy d:\*.* /e/f/s e:\ <em>(Where d: is the source media and e: is the hard disk)</em></li>
+<li>bootsect /nt60 e:</li>
+</ol>
+<h3 id="configure-ntp-from-cli">Configure NTP from CLI</h3>
+<p>Here are commands to enable NTP client to poll every 900 seconds:</p>
+<pre><code class="language-powershell">reg add HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters /v Type /t REG_SZ /d &quot;NTP&quot; /f
+reg add HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters /v NtpServer /t REG_SZ /d &quot;0.us.pool.ntp.org,0x1 1.us.pool.ntp.org,0x1 2.us.pool.ntp.org,0x1&quot; /f
+reg add HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient /v SpecialPollInterval /t REG_DWORD /d 00000900 /f
+net stop w32time &amp;&amp; net start w32time
+</code></pre>
+<h3 id="replication-checking">Replication checking</h3>
+<pre><code class="language-powershell">repadmin /showrepl
+</code></pre>
+<h3 id="in-place-upgrade-between-editions">In-place upgrade between editions</h3>
+<pre><code class="language-powershell">dism /online /set-edition:ServerEnterprise /productkey:sdfjk-asldf-jkals-dfjsj-asdfk
+</code></pre>
+<h3 id="group-policies">Group Policies</h3>
+<p>Win2003 can use gpmc.msc to make things easier</p>
+<p>gpedit.msc to edit some policies</p>
+<h3 id="retrieve-product-key">Retrieve product key</h3>
+<p>This is useful to do as soon as you buy a new computer that came pre-installed with Windows OEM.</p>
+<pre><code class="language-powershell">wmic path softwareLicensingService get OA3xOriginalProductKey
+</code></pre>
+<pre><code class="language-powershell">Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+</code></pre>
+<pre><code class="language-powershell">(Get-ItemProperty &quot;HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform&quot;).BackupProductKeyDefault
+</code></pre>
+<h2 id="links">Links</h2>
 <ul>
-<li><code>cut</code> is often used with <code>[tr](tr.md)</code></li>
-<li><code>[awk](awk.md)</code> is what I usually reach for instead of <code>cut</code> when working with words.</li>
+<li>https://www.manageengine.com/products/self-service-password: Active Directory Self Service password resets</li>
+<li><a href="https://ninite.com">https://ninite.com</a>: Automated installation of many apps</li>
+<li><a href="https://www.robvanderwoude.com/ntadmincommands.php">https://www.robvanderwoude.com/ntadmincommands.php</a>: "Useful commands for Windows administrators"</li>
+<li><a href="https://chocolatey.org">https://chocolatey.org</a>: "The Package Manager for Windows"</li>
 </ul>
 
 
