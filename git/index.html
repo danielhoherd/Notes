@@ -3176,6 +3176,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aggressive-repo-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggressive repo cleanup
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -8767,6 +8776,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#aggressive-repo-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggressive repo cleanup
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9129,6 +9147,14 @@ done ;
 <h4 id="branch-cleanup">Branch cleanup</h4>
 <pre><code>git gc --prune=now
 git remote prune origin
+</code></pre>
+<h4 id="aggressive-repo-cleanup">Aggressive repo cleanup</h4>
+<p>This aggressively deletes all old refs and then does some garbage collection. On some repos, this can save a significant amount of space. I've been able to reduce some repo size by 92% using these commands:</p>
+<pre><code class="language-sh">git reset --hard &quot;$whatever_point_you_want_to_be_at&quot;
+# now delete all branches and tags you don't want to include in your repo state
+git reflog expire --expire=now --all
+git gc --prune=now
+git gc --aggressive --prune=now
 </code></pre>
 <h3 id="git-grep">git grep</h3>
 <h4 id="find-a-string-in-all-branches">Find a string in all branches</h4>
